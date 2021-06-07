@@ -86,8 +86,8 @@ def decode_cbor(pfx, cbor, pos, isCOSE):
         # unsigned int, nothing to do
         print('int:%d'%(val,))
     elif 1==maj:
-        # negative int, negate (2s comp)
-        print('neg:%d'%(1-val,))
+        # negative int, subtract from -1
+        print('neg:%d'%(-1-val,))
     elif 2==maj:
         # byte string, grab 'em
         byts = cbor[pos:pos+val]
