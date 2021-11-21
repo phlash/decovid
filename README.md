@@ -5,6 +5,8 @@ data as stored in the 2D "QR" codes you present to travel authorities.
 
 It also provides a decoder for domestic COVID-19 PASS "QR" codes you present at domestic events.
 
+UK Passenger Locator forms also have a "QR" code on them, instructions below on reading these.
+
 ## Pre-requisites
 
 Python 3.x
@@ -27,9 +29,16 @@ $ zbarcam -q --raw |./international.py      (for live camera decoding)
 $ ./international.py < scanned-qr-code.txt  (for previously decoded QR text)
 ```
 
-Domestic COVID-19 PASSes, any ONE of:
+UK Domestic COVID-19 PASSes, any ONE of:
 ```bash
 $ zbarimg -q --raw |./domestic.py      (for previously captured image files)
 $ zbarcam -q --raw |./domestic.py      (for live camera decoding)
 $ ./domestic.py < scanned-qr-code.txt  (for previously decoded QR text)
+```
+
+UK Passenger Locator Forms, these are simple base64'd JSON so any ONE of:
+```bash
+$ zbarimg -q --raw |base64 -d |jq      (for previously captured image files)
+$ zbarcam -q --raw |base64 -d |jq      (for live camera decoding)
+$ base64 -d < scanned-qr-code.txt |jq  (for previously decoded QR text)
 ```
