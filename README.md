@@ -5,6 +5,8 @@ data as stored in the 2D "QR" codes you present to travel authorities.
 
 It also provides a decoder for domestic COVID-19 PASS "QR" codes you present at domestic events.
 
+__UPDATE 2021-12-17:__ domestic codes now use the standard `HC1` format as international codes.
+
 UK Passenger Locator forms also have a "QR" code on them, instructions below on reading these.
 
 ## Pre-requisites
@@ -22,14 +24,14 @@ Nope.
 
 ## Run
 
-International (aka UK/EU) passports, any ONE of:
+International (aka UK/EU) passports, recent UK domestic codes (post Nov-2021), any ONE of:
 ```bash
 $ zbarimg -q --raw |./international.py      (for previously captured image files)
 $ zbarcam -q --raw |./international.py      (for live camera decoding)
 $ ./international.py < scanned-qr-code.txt  (for previously decoded QR text)
 ```
 
-UK Domestic COVID-19 PASSes, any ONE of:
+UK Domestic COVID-19 PASSes (pre Dec-2021), any ONE of:
 ```bash
 $ zbarimg -q --raw |./domestic.py      (for previously captured image files)
 $ zbarcam -q --raw |./domestic.py      (for live camera decoding)
